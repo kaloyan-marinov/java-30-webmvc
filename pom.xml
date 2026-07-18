@@ -30,6 +30,12 @@
 		<java.version>25</java.version>
 	</properties>
 	<dependencies>
+		<!--
+		This application uses the [Jackson JSON](
+			https://github.com/FasterXML/jackson
+		) library to automatically marshal instances of type `Greeting` into JSON.
+		Jackson is included by default [in this starter].
+		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>

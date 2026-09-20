@@ -19,9 +19,9 @@ the way that the HTTP response body is created.
     this RESTful web service controller populates and returns a `Greeting` object.
     The object data will be written directly to the HTTP response as JSON.
 
-This code uses Spring `@RestController` annotation, which marks the class as a [RESTful web service] controller
+This code uses Spring's `@RestController` annotation, which marks the class as a [RESTful web service] controller
 [meaning that] every method returns a domain object instead of a view.
-It is shorthand for including both `@Controller` and `@ResponseBody`.
+It is a «composed annotation» that combines `@Controller` and `@ResponseBody`.
 
 The `Greeting` object must be converted to JSON.
 
@@ -36,24 +36,8 @@ public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    /*
-    [This] annotation ensures that
-    HTTP GET requests to `/greeting` are mapped to the `greeting()` method.
-
-    (
-    There are companion annotations for other HTTP verbs (e.g. `@PostMapping` for POST).
-    There is also a `@RequestMapping` annotation that
-    they all derive from,
-    and can serve as a synonym (e.g. `@RequestMapping(method=GET)`).
-    )
-    */
     @GetMapping("/greeting")
     public Greeting greeting(
-        /*
-        [This annotation] binds the value of the query string parameter `name`
-        into the `name` parameter of the ... method.
-        */
-
         @RequestParam(defaultValue = "World")
         String name
     ) {

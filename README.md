@@ -5,7 +5,7 @@ $ ./mvnw spring-boot:run
 ```
 
 (Either use a web browser or)
-Use another terminal window to ssue these HTTP request:
+Use another terminal window to issue these HTTP request:
 ```shell
 $ curl localhost:8080/greeting \
     | json_pp
